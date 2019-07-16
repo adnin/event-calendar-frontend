@@ -1,0 +1,67 @@
+<div class="row">
+    <mat-toolbar>
+        <span>Event</span>
+        <span class="example-spacer"></span>
+        <button mat-button (click)="logout()">  
+          <mat-icon aria-label="Sign Out">power_settings_new</mat-icon>
+        </button>
+      </mat-toolbar>
+  <div class="col-4">
+    <mat-card>
+      <form (ngSubmit)="createEvent()" [formGroup]="eventForm" #form="ngForm" novalidate>
+        <mat-card-content>
+            <mat-form-field class="example-form-field">
+              <input matInput formControlName="name" type="text" placeholder="Event Name">
+              <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+            <table class="example-form-field" cellspacing="0"><tr>
+              <td>
+                <mat-form-field>
+                  <input matInput formControlName="start_date" [matDatepicker]="from" placeholder="From">
+                  <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+                  <mat-datepicker #from></mat-datepicker>
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field>
+                  <input matInput formControlName="end_date" [matDatepicker]="to" placeholder="To">
+                  <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+                  <mat-datepicker #to></mat-datepicker>
+                </mat-form-field>
+              </td>
+              </tr>
+            </table>
+            <section class="example-section">
+              <mat-checkbox *ngFor="let day of days" class="example-margin" [ngModelOptions]="{standalone: true}" [(ngModel)]="day.value">{{day.name | slice:0:3}}</mat-checkbox>
+            </section>
+            <button mat-flat-button [disabled]="eventForm.invalid || isLoading || !checkIfHasDay()">Save</button>
+          </mat-card-content>
+        </form>
+      </mat-card>
+  </div>
+  <div class="col-8">
+    <mat-card>
+      <div class='app'>
+        <div *ngIf="calendarVisible">
+          <full-calendar
+            #calendar
+            defaultView="dayGridMonth"
+            [header]="{
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            }"
+            [plugins]="calendarPlugins"
+            [weekends]="calendarWeekends"
+            [events]="calendarEvents"
+            [displayEventTime]="false"
+          ></full-calendar>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<ng2-toasty [position]="position"></ng2-toasty>

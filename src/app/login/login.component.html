@@ -1,0 +1,31 @@
+<div class="row justify-content-md-center">
+  <div class="card-wrapper">
+    <div class="card fat">
+      <div class="card-body">
+        <h4 class="card-title">Event Sign In</h4>
+        <form (ngSubmit)="login()" [formGroup]="loginForm" novalidate class="my-login-validation">
+          <div class="form-group">
+            <label for="email">E-Mail Address</label>
+            <input id="email" type="email" class="form-control" formControlName="username" name="email" value="" autofocus>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password
+            </label>
+            <input id="password" type="password" class="form-control" formControlName="password" name="password" data-eye>
+          </div>
+
+          <div class="form-group m-0">
+            <button  type="submit" [disabled]="loginForm.invalid || isLoading" class="btn btn-block">
+              Login
+            </button>
+          </div>
+          <div class="mt-4 text-center">
+           
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<ng2-toasty [position]="position"></ng2-toasty>

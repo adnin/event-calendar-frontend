@@ -1,0 +1,56 @@
+
+.app-top {
+    margin: 0 0 3em;
+  }
+  
+  .app-calendar {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  .example-form-field {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+  .example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  mat-toolbar {
+    margin: 15px;
+    background: #00877a;
+    color: #ffffff;
+  }
+  button {
+    background: #00877a;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 50px;
+}
+
+.mat-card {
+    -webkit-box-shadow: 0 7px 6px -6px #777;
+    -moz-box-shadow: 0 7px 6px -6px #777;
+     box-shadow: 0 7px 6px -6px #777;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 8px;
+}
